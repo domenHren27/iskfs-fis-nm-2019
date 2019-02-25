@@ -1,0 +1,51 @@
+<!doctype html>
+
+<html lang="en">
+
+<body>
+    <p>LED 1</p>
+    <button id="buttonOn" onClick="led1_on_off()">On</button>
+    <button id="buttonOff" onClick="led1_on_off()">Off</button>
+    
+    <p>LED 2</p>
+    <button id="buttonOn" onClick="led2_on_off()">On</button>
+    <button id="buttonOff" onClick="led2_on_off()">Off</button>
+    
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <!--<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>-->
+    <!--<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>-->
+    <script>
+    //import io from 'socket.io-client';
+    alert("Script is on");
+        var led1 = 0;
+        var led2 = 0;
+        var socket = io.connect("http://192.168.1.111:8080"); // create socket - connect to it
+        alert("Socket Connected");
+        
+        function led1_on_off(led1){
+            if(led1 == 0){
+                
+            }
+            
+        }
+        function on1 () {
+            socket.emit("commandToArduino", 1);
+            console.log("Socket emit #1");
+        }
+            
+        function off1 () {
+            socket.emit("commandToArduino", 0);
+            console.log("Socket emit #2");
+        }
+        function on2 () {
+            socket.emit("commandToArduino", 2);
+            console.log("Socket emit #1");
+        }
+            
+        function off2 () {
+            socket.emit("commandToArduino", 3);
+            console.log("Socket emit #2");
+        }
+    </script>
+</body>
+</html>
