@@ -15,7 +15,7 @@ var board = new firmata.Board("/dev/ttyACM0", function(){
 });
 
 function handler(req, res) {
-    fs.readFile(__dirname + "/primer07.html",
+    fs.readFile(__dirname + "/primer09.html",
     function (err, data) {
         if (err) {
             res.writeHead(500, {"Content-Type": "text/plain"});
@@ -42,7 +42,7 @@ io.sockets.on("connection", function(socket) {
 
     // izpišemo IP naslov, vrata, ip verzijo
 
-    klientovIpNaslov = socket.request.socket.remoteAddress;
+    var klientovIpNaslov = socket.request.socket.remoteAddress;
 
     io.sockets.emit("sporočiloKlientu", "socket.request.socket.remoteAddress: " + socket.request.socket.remoteAddress);
 
